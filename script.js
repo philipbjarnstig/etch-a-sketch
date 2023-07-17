@@ -7,11 +7,18 @@ function createBoxes(rowNumber)
     for (let i = 1; i < total; i++)
     {
         const div = document.createElement("div");
-        if (i % mod === 0)
+
+        if (i % mod === 0) {
             div.style.cssText = "height: 0; width: 100%";
-        else
+        }
+        else {
             div.style.cssText = "height: 25px; width: 25px";
+        }
         
+        div.addEventListener("mouseover", () => {
+            div.style.backgroundColor = "black";
+        })
+
         containerDiv.appendChild(div);
     }
 }
