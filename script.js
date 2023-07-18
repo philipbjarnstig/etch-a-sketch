@@ -1,24 +1,27 @@
 function createBoxes(rowNumber)
 {
     const containerDiv = document.querySelector(".container");
-    const total = (rowNumber*rowNumber) + rowNumber;
-    const mod = rowNumber + 1;
+    const total = (rowNumber*rowNumber);
+
+    containerDiv.style.gridTemplateColumns = `repeat(${rowNumber}, 1fr)`;
+    containerDiv.style.gridTemplateRows = `repeat(${rowNumber}, 1fr)`;
 
     for (let i = 1; i < total; i++)
     {
         const div = document.createElement("div");
-
-        if (i % mod === 0) {
-            div.style.cssText = "height: 0; width: 100%";
-        }
-        else {
-            div.style.cssText = "height: 25px; width: 25px";
-        }
-        
         div.addEventListener("mouseover", () => {
             div.style.backgroundColor = "black";
         })
 
         containerDiv.appendChild(div);
+    }
+}
+
+function delGrid()
+{
+    const containerDiv = document.querySelector(".container");
+    while(containerDiv.firstChild)
+    {
+        containerDiv.removeChild(containerDiv.firstChild);
     }
 }
