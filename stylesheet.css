@@ -1,0 +1,10 @@
+*
+{
+    box-sizing: border-box;
+}
+.container
+{
+    display: grid;
+    height: 400px;
+    width: 400px;
+}
